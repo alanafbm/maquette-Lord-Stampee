@@ -1,0 +1,212 @@
+.description{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    padding: 50px 0;
+}
+.fiche:first-child{
+    border-right: 1px solid var(--secondary-color);
+    padding-right: 150px;
+}
+.fiche>.button{
+    width: 200px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color:var(--primary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    margin-left: 80px;
+    margin-top: 120px;
+    content: none;
+} 
+.fiche>.button:hover{
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.fiche{
+    padding: 50px 0;
+}
+.margin{
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.searchMenu{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.filter{
+    width: 200px;
+    padding: 10px 15px;
+    background-color:var(--primary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+   
+}
+.filter::after{
+    content: "▼";
+}
+
+label{
+    color: var(--secondary-color);
+    font-size: 1.2em;
+}
+
+select{
+    display: inline-block;
+    padding: 2px;
+    border: 2px solid var(--secondary-color);
+    color: var(--primary-color); 
+    font-size: 1.1rem;
+    width: 120px;
+    border-radius: 5px;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    column-gap: 30px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+section>.card:first-child{
+    margin-top: 100px;
+}
+.cards>.card{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 250px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+}
+.cards>.card:hover{
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    box-shadow: rgba(27, 27, 27, 0.25) 0px 6px 12px 2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+/*     box-shadow: 0 27px 85px 0 rgba(77, 77, 77, 0.3), 0 7px 7px 0 rgba(77, 77, 77, 0.15);
+ */
+}
+.cards>.card>img{
+    width: 180px;
+}
+.card{
+    padding: 20px;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+.card>.button{
+    height: 40px;
+    width: 200px;
+    padding: 10px 15px;
+    background-color:var(--primary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    margin-top: 200px;
+}
+.card>.button:hover{
+    background-color: var(--secondary-color);
+    color: white;
+}
+.card>div{
+    padding: 10px 0 0 80px;
+}
+.flex>h3{
+    margin-top: 130px;
+}
+
+/* FICHE D`ENCHÉRES */
+
+.containerSection{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.imgPetitContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: 100%;
+    padding: 25px;
+    cursor:zoom-in;
+}
+.imgPetit{
+    width: 100px;
+    height: 100%;
+    transition: width 1s, height 2s;
+}
+.imgPetit:hover{
+    width: 120px;
+    height: 100%;
+}
+.imgGrandContainer{
+    padding-top: 55px;
+    cursor:zoom-in;
+}
+/* .imgGrand:hover{
+    zoom: 150%;
+    overflow: hidden;
+} */
+
+.descriptionContainer{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+.descriptionContainer>h3,h5{
+    padding: 25px 0;
+}
+.descriptionContainer>.button{
+    width: 200px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color:var(--primary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    content: none;
+} 
+.fiche>.button:hover{
+    background-color: var(--secondary-color);
+    color: white;
+}
+svg{
+    padding-right: 25px;
+    margin-top: 25px;
+}
+h5{
+    font-size: 1em;
+    color: var(--secondary-color);
+}
+.articleFlex{
+    display: flex;
+}
+.articleFlex>svg{
+    width: 50px;
+    height: 20px;
+    cursor:pointer;
+    transition:all .4s;
+}
+.articleFlex>svg:hover{
+    transform: scale(1.5,1.5);;
+}
+.padding-top{
+    padding-top: 150px;
+}

@@ -1,0 +1,12 @@
+.banner{
+    height: 450px;
+    border-radius: 0;
+    object-fit: cover;
+    background-color: grey;
+}
+.banner>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 70%;
+}

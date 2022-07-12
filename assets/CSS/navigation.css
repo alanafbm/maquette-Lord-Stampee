@@ -1,0 +1,110 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    align-content: stretch;
+    margin:0;
+    padding: 5px 1em  ; 
+    border-bottom: 0.5px solid var(--secondary-color);
+}
+
+nav>* {
+    flex-basis:calc(16%);	
+}
+
+nav a {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    color:var(--secondary-color);
+    padding: 10px;
+    position: relative;
+    margin: 0 ;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.75;
+    letter-spacing: 1px;
+}
+.icon{
+    padding: 0;
+    margin: 0;
+}
+.imgIcon{
+    width: 20%;
+    object-fit: cover;
+} 
+nav a:hover {
+    color:var(--secondary-color);
+    background: none;
+}
+
+div span{
+    font-size: 1em;
+    color:var(--secondary-color);
+    margin-left: 10px;
+}
+
+div a:hover span{
+    font-weight: 700;
+    color:var(--secondary-color);
+}
+
+nav div:first-child{
+    padding-left: 50px;
+}
+
+nav div a span{
+    line-height: 1.78em; 
+}
+
+nav div.subMenu {
+    position:relative
+}
+
+nav div.subMenu > div {
+    display: none;
+    position: absolute;
+    padding: 0.em 0;
+    width: 100%; 
+    background-color: white;
+    z-index: 5;
+    border-radius: 5px;
+}
+    
+nav div.subMenu:hover > div {
+    display:block;
+}
+
+input[type="search"]{
+    background-color: var(--secondary-color);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+::-webkit-input-placeholder  { 
+    color:white; 
+}
+
+.secondaryMenu{
+   background-color: white;
+   display: flex;
+   justify-content: space-around;
+   text-align: center;
+   margin-bottom: 20px;
+   border-bottom: 1px solid var(--secondary-color);
+}
+
+.secondaryMenu>a{
+    border-right: 1px solid var(--secondary-color);
+    align-items: center;
+}
+
+.secondaryMenu>a:last-child{
+    border-right: none;
+}
+
