@@ -15,56 +15,120 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
     <script src="./assets/JS/main.js"></script>
+    <script>
+        function magnify(imgID, zoom) {
+        var img, glass, w, h, bw;
+        img = document.getElementById(imgID);
+        /*create magnifier glass:*/
+        glass = document.createElement("DIV");
+        glass.setAttribute("class", "img-magnifier-glass");
+        /*insert magnifier glass:*/
+        img.parentElement.insertBefore(glass, img);
+        /*set background properties for the magnifier glass:*/
+        glass.style.backgroundImage = "url('" + img.src + "')";
+        glass.style.backgroundRepeat = "no-repeat";
+        glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+        bw = 3;
+        w = glass.offsetWidth / 2;
+        h = glass.offsetHeight / 2;
+        /*execute a function when someone moves the magnifier glass over the image:*/
+        glass.addEventListener("mousemove", moveMagnifier);
+        img.addEventListener("mousemove", moveMagnifier);
+        /*and also for touch screens:*/
+        glass.addEventListener("touchmove", moveMagnifier);
+        img.addEventListener("touchmove", moveMagnifier);
+        function moveMagnifier(e) {
+            var pos, x, y;
+            /*prevent any other actions that may occur when moving over the image*/
+            e.preventDefault();
+            /*get the cursor's x and y positions:*/
+            pos = getCursorPos(e);
+            x = pos.x;
+            y = pos.y;
+            /*prevent the magnifier glass from being positioned outside the image:*/
+            if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+            if (x < w / zoom) {x = w / zoom;}
+            if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+            if (y < h / zoom) {y = h / zoom;}
+            /*set the position of the magnifier glass:*/
+            glass.style.left = (x - w) + "px";
+            glass.style.top = (y - h) + "px";
+            /*display what the magnifier glass "sees":*/
+            glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+        }
+        function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            /*calculate the cursor's x and y coordinates, relative to the image:*/
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /*consider any page scrolling:*/
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x : x, y : y};
+        }
+        }
+</script>
 </head>
 <body>
-    <nav>
-        <div class="icon">
-          <img class="imgIcon" src="./assets/images/logoStampee-2.png" alt="">
+  <nav>
+    <div class="icon">
+      <img class="imgIcon" src="./assets/images/logoStampee-2.png" alt="">
+    </div>
+    <div class="subMenu">
+        <a  href="./accueil.html" class="menuFont">Accueil</a>
+<!--    <div>
+            <a href="#">#</a>
+            <a href="#">#</a>
+            <a href="#">#</a>
         </div>
-        <div class="subMenu">
-            <a  href="./accueil.html">Accueil</a>
-<!--             <div>
-                <a href="#">#</a>
-                <a href="#">#</a>
-                <a href="#">#</a>
-            </div>
- -->        </div>
-        <div class="subMenu">
-            <a  href="./ficheEncheres.html">Enchéres</a>
-<!--             <div>
-                <a href="#">Lord Stampee</a>
-                <a href="#">Lord Stampee</a>
-                <a href="#">Lord Stampee</a> 
-            </div>
- -->        </div>
-        <div class="subMenu">
-            <a  href="./catalogue.html">Catalogue</a>
-<!--             <div>
-                <a href="#">#</a>
-                <a href="#">#</a>
-                <a href="#">#</a>
-            </div>
- -->        </div>    
-        <a  href="#">A propos</a>
-        <a  href="#">Login</a>
-        <input type="search" name="recherche" id="" placeholder="Recherche">
-    </nav>
+ -->    </div>
+    <div class="subMenu">
+        <a  href="./ficheEncheres.html" class="menuFont">Enchéres</a>
+<!--    <div>
+            <a href="#">Lord Stampee</a>
+            <a href="#">Lord Stampee</a>
+            <a href="#">Lord Stampee</a> 
+        </div>
+ --></div>
+    <div class="subMenu">
+        <a  href="./catalogue.html" class="menuFont">Catalogue</a>
+<!--    <div>
+            <a href="#">#</a>
+            <a href="#">#</a>
+            <a href="#">#</a>
+        </div>
+ --></div>    
+    <a  href="#" class="menuFont">A propos</a>
+    <a  href="#" class="menuFont">Login</a>
+    <input type="search" name="recherche" placeholder="Recherche">
+</nav>
 
   <!---------------------Sections------------------->
     <div class="wrapper padding-top">
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="#010346" fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path></svg>Back to catalogue</a>
+
+    <a href="./catalogue.html" class="svg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bi" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="#010346" fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"></path></svg>Back to catalogue</a>
+    <section>
+            <nav class="secondaryMenu">
+                <a href="">PHOTOS</a>
+                <a href="">DESCRIPTION</a>
+                <a href="">CONDITIONS</a>
+            </nav>
+    </section>
         <div class="containerSection">
             <div class="imgPetitContainer">
                 <img class="imgPetit" src="./assets/images/lord_stampee.jpg" alt="">
                 <img class="imgPetit" src="./assets/images/lord_stampee.jpg" alt="">
                 <img class="imgPetit" src="./assets/images/lord_stampee.jpg" alt="">
             </div>
-            <div class="imgGrandContainer">
-                <img class="imgGrand" id="imgGrand" src="./assets/images/lord_stampee.jpg" alt="">
+            <div class="img-magnifier-container">
+                <img id="myimage" src="./assets/images/lord_stampee.jpg" width="350" height="450" alt="Girl">
             </div>
             <div class="descriptionContainer">
-                <h3>N SERIE: 2195994</h3>
                 <h3>Lord Stampee bleu, TIMBRE B /O. </h3>
+                <h5>N SERIE: 2195994</h5>
                 <h5>ESTIMATE: $1000</h5>
                 <h5>CURRENT BID: $650</h5>
                 <button class="button">SAVE</button>
@@ -72,21 +136,23 @@
             </div>
         </div>
         <div>
-            <article class="articleFlex" id="description">
-                <h5>DESCRIPTION</h5>
-<!--                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus pulvinar elementum integer enim. Dapibus ultrices in iaculis nunc sed augue. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Cursus in hac habitasse platea dictumst. Elementum integer enim neque volutpat ac tincidunt vitae semper. Cras sed felis eget velit aliquet sagittis id. Fusce id velit ut tortor pretium viverra suspendisse potenti. Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Et netus et malesuada fames ac turpis egestas integer eget. Lacus sed viverra tellus in hac habitasse platea dictumst vestibulum. Egestas tellus rutrum tellus pellentesque. Nulla facilisi nullam vehicula ipsum a arcu. Nam aliquam sem et tortor consequat id porta nibh venenatis. Nunc sed velit dignissim sodales ut. Id consectetur purus ut faucibus.</p>
- -->               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--uil" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42Z"></path></svg>
+            <article class="flex" id="description">
+                <div class="articleFlex">
+                    <h5>DESCRIPTION</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--uil" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42Z"></path></svg>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus pulvinar elementum integer enim. Dapibus ultrices in iaculis nunc sed augue. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Cursus in hac habitasse platea dictumst. Elementum integer enim neque volutpat ac tincidunt vitae semper. Cras sed felis eget velit aliquet sagittis id. Fusce id velit ut tortor pretium viverra suspendisse potenti. Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Et netus et malesuada fames ac turpis egestas integer eget. Lacus sed viverra tellus in hac habitasse platea dictumst vestibulum. Egestas tellus rutrum tellus pellentesque. Nulla facilisi nullam vehicula ipsum a arcu. Nam aliquam sem et tortor consequat id porta nibh venenatis. Nunc sed velit dignissim sodales ut. Id consectetur purus ut faucibus.</p>
             </article>
-            <article class="articleFlex" id="conditions">
-                <h5>CONDITIONS</h5>
-<!--                 <p>Sem integer vitae justo eget magna fermentum. Dictum non consectetur a erat nam at. Eget egestas purus viverra accumsan in nisl. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas. Quis blandit turpis cursus in hac habitasse. Amet nulla facilisi morbi tempus iaculis urna id. Vestibulum morbi blandit cursus risus at ultrices mi. Lorem donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Mi tempus imperdiet nulla malesuada pellentesque elit.</p>
- -->                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--uil" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42Z"></path></svg>
+            <article class="flex" id="conditions">
+                <div class="articleFlex">
+                    <h5>CONDITIONS</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--uil" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42Z"></path></svg>
+                </div>
+                <p>Sem integer vitae justo eget magna fermentum. Dictum non consectetur a erat nam at. Eget egestas purus viverra accumsan in nisl. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas. Quis blandit turpis cursus in hac habitasse. Amet nulla facilisi morbi tempus iaculis urna id. Vestibulum morbi blandit cursus risus at ultrices mi. Lorem donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Mi tempus imperdiet nulla malesuada pellentesque elit.</p>
             </article>
         </div>
     </div>
-
-
-  <!---------------------------------Footer------------------------------------->
+   <!---------------------------------Footer------------------------------------->
   <footer>
     <nav class="footerNav">
         <div class="navColumn">
@@ -104,9 +170,14 @@
         <div class="navColumn">
             <a href="#">Nous suivre</a>
             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--entypo-social" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--entypo-social" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path fill="currentColor" d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h14c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2zM9.984 15.523a5.539 5.539 0 0 0 5.538-5.539c0-.338-.043-.664-.103-.984H17v7.216a.69.69 0 0 1-.693.69H3.693a.69.69 0 0 1-.693-.69V9h1.549c-.061.32-.104.646-.104.984a5.54 5.54 0 0 0 5.539 5.539zM6.523 9.984a3.461 3.461 0 1 1 6.922 0a3.461 3.461 0 0 1-6.922 0zM16.307 6h-1.615A.694.694 0 0 1 14 5.308V3.691c0-.382.31-.691.691-.691h1.615c.384 0 .694.309.694.691v1.616c0 .381-.31.693-.693.693z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ion" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path d="M182.8 384V212.9h-54.9V384h54.9zm-25.4-197c18.3 0 29.7-13.1 29.7-29.5-.3-16.7-11.4-29.5-29.4-29.5S128 140.8 128 157.5c0 16.4 11.4 29.5 29 29.5h.4z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path><path d="M320.6 209c-29.1 0-41.6 16.4-49.6 27.8V213h-55v171h55v-97.4c0-5 .4-10 1.9-13.5 4-10 13-20.3 28.2-20.3 19.9 0 27.9 15.3 27.9 37.7V384h55v-99.9c0-51.3-27.2-75.1-63.4-75.1z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path><path d="M417.2 64H96.8C79.3 64 64 76.6 64 93.9V415c0 17.4 15.3 32.9 32.8 32.9h320.3c17.6 0 30.8-15.6 30.8-32.9V93.9C448 76.6 434.7 64 417.2 64zM414 416H99.1c-1.8 0-3.1-1.4-3.1-3.1V98c0-1.1 1-2 2-2h316c1 0 2 1 2 2v316c0 .9-.9 2-2 2z" fill="currentColor"></path></svg></a>
-            <a href="#">icon</a>
+            <a href="#"></a>
         </div>
     </nav>
   </footer>
+<script>
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+    magnify("myimage", 3);
+</script>
 </body>
 </html>

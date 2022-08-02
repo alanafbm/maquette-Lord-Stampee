@@ -1,7 +1,3 @@
-### Mr Stampee é uma pessoa cheia de vivências e cada selo conta um pouquinho sobre ele e sobre as pessoas e os lugares que marcaram a sua vida. A sua delicadeza por guardar cada pedacinho de papel que comprova um diálogo ou algo que foi enviado a alguém especial. As suas cartas viajaram o mundo e eu imagino a importância que cada selo tem na sua vida. São tantas as cores, os valores e até mesmo os desenhos, que ele se tornou inspiração por tamanho bom gosto na hora de fazer essa coleção. 
-### A sua delicadeza por guardar cada pedacinho de papel que comprova um diálogo ou algo que foi enviado a alguém especial. As suas cartas viajaram o mundo e eu imagino a importância que cada selo tem na sua vida. São tantas as cores, os valores e até mesmo os desenhos, que ele se tornou inspiração por tamanho bom gosto na hora de fazer essa coleção. 
-
-
 
 ### Mr Stampee est une personne pleine d'expériences et chaque timbre en dit un peu plus sur lui et sur les personnes et les lieux qui ont marqué sa vie.
 

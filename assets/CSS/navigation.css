@@ -9,9 +9,12 @@ nav {
 }
 
 nav>* {
-    flex-basis:calc(16%);	
+    flex-basis:calc(13.5%);	
 }
 
+.menuFont{
+    font-size: 1.5em;
+}
 nav a {
     display: inline-block;
     width: 100%;
@@ -27,6 +30,12 @@ nav a {
     text-align: center;
     line-height: 1.75;
     letter-spacing: 1px;
+}
+nav a:hover{
+    border-bottom: 2px solid var(--secondary-color);
+}
+footer nav a:hover{
+    border-bottom: none;
 }
 .icon{
     padding: 0;
@@ -83,7 +92,7 @@ input[type="search"]{
     padding: 12px;
     border: none;
     border-radius: 5px;
-
+    order: 5;
 }
 
 ::-webkit-input-placeholder  { 
