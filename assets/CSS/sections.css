@@ -23,6 +23,7 @@
     margin-left: 80px;
     margin-top: 120px;
     content: none;
+    letter-spacing: .1em;
 } 
 .fiche>.button:hover{
     background-color: var(--secondary-color);
@@ -33,7 +34,7 @@
     padding: 50px 0;
 }
 .margin{
-    margin-left: 80px;
+    margin-left: 100px;
     margin-top: 170px;
 }
 
@@ -77,10 +78,9 @@ select{
     column-gap: 30px;
     row-gap: 30px;
     flex-wrap: wrap;
-    padding: 20px;
 }
 section>.card:first-child{
-    margin-top: 100px;
+    margin-top: 80px;
 }
 .cards>.card{
     display: flex;
@@ -123,24 +123,28 @@ section>.card:first-child{
     color: white;
 }
 .card>div{
-    padding: 10px 0 0 80px;
+    padding: 0 0 0 80px;
 }
 .flex>h3{
-    margin-top: 30px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    padding-right: 20px;
 }
 .btn{
     height: 40px;
-    width: 150px;
+    width: 200px;
     padding: 10px 15px;
     background-color:var(--primary-color);
     font-weight: 600;
     color: var(--secondary-color);
     border-radius: 5px;
     border: none;
-    margin-top: 45px;
+    margin: 25px 25px 25px 0;
+    letter-spacing: .1em;
 }
 .btn:hover{
     background-color: var(--secondary-color);
+    color: white;
 }
 .btn>a:hover{
     color: white;
@@ -154,7 +158,6 @@ section>.card:first-child{
 .containerSection{
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
 }
 .imgPetitContainer{
     display: flex;
@@ -166,29 +169,23 @@ section>.card:first-child{
 }
 .imgPetit{
     width: 100px;
-    height: 100%;
+    height: 130px;
+    margin: 10px;
+    object-fit: cover;
 }
-.imgPetit:hover{
-    width: 120px;
-    height: 100%;
-    transition: width 1s, height 2s;
-}
-
 .img-magnifier-container {
     position:relative;
     padding-top: 55px;
 }
-  
 .img-magnifier-glass {
     position: absolute;
     border: 3px solid #000;
     border-radius: 50%;
     cursor: none;
     /*Set the size of the magnifier glass:*/
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
-
 .detailView{
     background-image: url(../images/lord_stampee.jpg);
 }
@@ -202,7 +199,7 @@ section>.card:first-child{
     padding: 25px 0;
 }
 .descriptionContainer>h3{
-    font-size: 1.7em;
+    font-size: 1.9em;
 }
 .descriptionContainer>.button{
     width: 200px;
@@ -215,6 +212,7 @@ section>.card:first-child{
     border: none;
     margin-top: 10px;
     content: none;
+    letter-spacing: .1em;
 } 
 .fiche>.button:hover{
     background-color: var(--secondary-color);
@@ -230,6 +228,7 @@ svg{
 h5{
     font-size: 1.3em;
     color: var(--secondary-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 .articleFlex{
     display: flex;
@@ -241,26 +240,34 @@ h5{
     transition:all .4s;
 }
 .articleFlex>svg:hover{
-    transform: scale(1.5,1.5);;
+    transform: scale(1.5,1.5);
 }
 .padding-top{
     padding-top: 100px;
 }
-/* css pour afficher description na class Detail */
+
+/* css pour afficher description a class Detail */
+
 .detail--ferme {
     max-height: 85px;
 }
-
 .detail--ouvert {
     max-height: 300px;
 }
 .chevron--bottom:before {
     transform: rotate(135deg);
 }
-
 .chevron--top:before {
     transform: rotate(-45deg);
 }
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.space-between svg{
+    margin-top: 10px;
+}
+
 
 /* ACCUEIL */
 
@@ -270,7 +277,6 @@ h5{
 .smallCard{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin: 20px;
     width: 400px;
     height: 400px;
@@ -284,16 +290,20 @@ h5{
 .smallCard>img{
     width: 100%;
     height: 80%;
+    object-fit: cover;
+    border: 4px dashed var(--primary-color);
+}
+.smallCard>img:hover{
+    transform: scale(1.02,1.02);
 }
 .positionRelative{
     position: relative;
 }
 .positionRelative h2{
     position: absolute;
-    top: 90px;
-    left: 520px;
-    right: 520px;
-    font-size: 2em;
+    top: 60px;
+    left: 20%;
+    right: 20%;
     color: #f5eacd;
     background-color: rgba(27, 31, 63, 0.59);
     font-family: var(--ff-secondary);
@@ -302,17 +312,178 @@ h5{
     font-variant: small-caps;
     line-height: 1.625;
 }
+h2 .textAccueil{
+    font-size: 2em;
+}
+
+/* ABOUT ME */
+
 .aboutMe{
     display: flex;
     justify-content: space-between;
-    width: 90%;
     height: 300px;
     object-fit: cover;
     background-color: rgba(41, 52, 81, 0.077);
     padding: 25px;
     border-radius: 5px;
-    margin: 200px 25px 25px 40px;
+    margin: 55px 0 55px 0;
 }
-.aboutMe p {
+.textAboutMe {
     margin-right: 50px;
+    font-size: 1.3em;
+}
+.aboutMe button {
+    margin-top: 55px;
+}
+
+
+/* NEWSLETTER */
+
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(41, 52, 81, 0.077);
+    padding: 25px;
+    border-radius: 5px;
+    margin: -45px 0 25px 0;
+    height: 300px;
+    border: 4px dashed var(--primary-color);
+    line-height: 1.625;
+    justify-content: center;
+    align-items: center;
+}
+.newsletter ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--secondary-color);
+  opacity: 1; /* Firefox */
+}
+.newsletter h2{
+    margin: 20px 0;
+    letter-spacing: .1em;
+    font-size: 1.8em;
+}
+.newsletter h4{
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+.newsletter input{
+    width: 320px;
+    height: 40px;
+    margin: 20px 25px;
+    letter-spacing: .1em;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+.align-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.background-rond{
+    width: 10%;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    z-index: -10;
+    position: absolute;
+    top: 80px;
+}
+.iconify--mdi{
+    width: 150px;
+    height: 100px;
+    margin-top: 90px;
+    margin-left: 25px;
+    position: relative;
+}
+
+/* GRILLE GALERIE  */
+
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 2vw);
+    grid-gap: 15px;
+}
+.galerieImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.galerieItem--1 {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 3;  
+}
+.galerieItem--2 {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 3;
+}
+.galerieItem--3 {
+    grid-column: 5 / span 4;
+    grid-row: 1 / span 7;
+}
+.galerieItem--4 {
+    grid-column: 1 / span 4;
+    grid-row: 4 / span 5;
+}
+.galerieItem--5 {
+    grid-column: 1 / span 4;
+    grid-row: 9 / span 2;
+}
+.galerieItem--6 {
+    grid-column: 5 / span 4;
+    grid-row: 8 / span 3;
+}
+.sectionGalerie h2{
+    margin-bottom: 25px;
+}
+
+/* Grille de cards accueil ---------------------- */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    max-width: 103rem;
+}
+.section-grid {
+    max-width: 103rem;
+}
+.container>div {
+    width: calc(45% - 20px);
+    margin: 25px 0;
+}
+.container a:hover{
+    zoom: 101%;
+}
+.category a {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.category a h3{
+    color:var(--secondary-color);
+    padding-bottom: 10px;
+}
+.category img {
+    object-fit: cover;
+    width: 100%;
+    height: 158px;
+}
+.category a:hover {
+    background: none;
+    
+}
+.category a:hover h3{
+    color: var(--primary-color);
+}
+.menuResto a {
+    /* width: calc(100% - 40px); */
+    text-align: center;
+}
+.menuResto p {
+    margin-top:20px;
+    padding:0 40px;
+    color:#000;
 }

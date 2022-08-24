@@ -18,7 +18,6 @@ nav>* {
 nav a {
     display: inline-block;
     width: 100%;
-    background: none;
     color:var(--secondary-color);
     padding: 10px;
     position: relative;
@@ -28,11 +27,12 @@ nav a {
     text-transform:uppercase;
     font-weight: 600;
     text-align: center;
-    line-height: 1.75;
+    line-height: 1.625;
     letter-spacing: 1px;
 }
 nav a:hover{
-    border-bottom: 2px solid var(--secondary-color);
+    zoom: 110%;
+    color: var(--primary-color);
 }
 footer nav a:hover{
     border-bottom: none;
@@ -76,7 +76,7 @@ nav div.subMenu {
 nav div.subMenu > div {
     display: none;
     position: absolute;
-    padding: 0.em 0;
+    padding: 0;
     width: 100%; 
     background-color: white;
     z-index: 5;

@@ -17,7 +17,6 @@ footer>svg{
 .footerNav{
     width: 100%;
     justify-content: space-between;
-    padding: 20px 0;
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
@@ -58,7 +57,5 @@ footer div {
 
 @media screen and (max-width: 900px) {
 
-    .navColumn {
-        order: 1;
-    }
+  
 }
