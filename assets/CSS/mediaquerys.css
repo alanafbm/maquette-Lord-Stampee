@@ -154,6 +154,10 @@
     .sectionGalerie, .sectionTypeEnchere, .sectionNewsLetter{
         padding: 0 25px;
     }
+    .newsletter input{
+        width: 70%;
+        margin: 20px 28px;
+    }
 
     /* INFOLETTRE */
 
@@ -168,16 +172,19 @@
     .newsletter h4 {
         font-size: 1em;
         margin: 10px 0;
+        text-align: center;
     }
     .newsletter .btn{
-        margin: 0 0 0 100px;
+        margin: 0 0 0 40px;
+        width: 70%;
     }
    
     /* CATALOGUE */
    
    .description {
         flex-direction: column;
-        padding: 25px;
+        width: 100%;
+        border-bottom: none;
 
    }
     .margin {
@@ -207,17 +214,17 @@
     .flex h2{
         font-size: 1em;
     }
-    .cards>.card{
-        width: 90%;
-        justify-content: flex-start;
+    .card h4{
+        font-size: 0.5em;
+    }
+    .card h3{
+        font-size: 0.8em;
+        margin-top: 10px;
     }
     .card>div{
         padding: 0 0 0 30px;
     }
-    .flex>h3{
-        font-size: 1em;
-        margin-top: 10px;
-    }
+
     .flex button{
         width: 100px;
         font-size: 0.6em;
@@ -225,7 +232,7 @@
         padding: 0;
     }
     a>.btn{
-        width: 200px;
+        width: 100px;
         height: 40px;
         font-size: 0.6em;
         margin: 10px 3px;
@@ -238,6 +245,13 @@
     .btnDetails{
         padding-top: 15px;
     }
+    select{
+        width: 80px;
+    }
+    .searchMenu{
+        padding-top: 50px;
+        border-top: 2px solid var(--primary-color);
+    }
 
     /* FICHE D'ENCHERES */
 
@@ -246,14 +260,17 @@
     }
     .imgPetitContainer {
         flex-direction: row;
+        margin: 0;
+        padding: 0;
     }
     .img-magnifier-glass {
         width: 100px;
         height: 100px;
         cursor: none;
     }
-    .img-magnifier-container {
-        margin-left: 60px;
+
+    .pd-rl{
+        padding: 0 25px;
     }
  
     /* LOGIN */
