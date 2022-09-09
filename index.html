@@ -7,11 +7,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Lord Stampee</title>
    <link rel="stylesheet" href="./assets/CSS/root.css">
-   <link rel="stylesheet" href="./assets/CSS/navigation.css">
-   <link rel="stylesheet" href="./assets/CSS/footer.css">
-   <link rel="stylesheet" href="./assets/CSS/header.css">
-   <link rel="stylesheet" href="./assets/CSS/sections.css">
-   <link rel="stylesheet" href="./assets/CSS/mediaquerys.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
@@ -27,14 +22,13 @@
          <a href="index.html" class="menuFont">Accueil</a>
       </div>
       <div class="subMenu">
-         <a href="ficheEncheres.html" class="menuFont">Enchéres</a>
+         <a href="catalogue.html" class="menuFont">Enchères</a>
          <div>
             <a href="#">En vedette</a>
             <a href="#">En cours</a>
             <a href="#">Passé</a>
          </div>
       </div>
-      <a href="catalogue.html" class="menuFont">Catalogue</a>
       <div class="subMenu">
          <a href="#" class="menuFont">A propos</a>
          <div>
@@ -43,7 +37,7 @@
             <a href="#">Nous contacter</a>
          </div>
       </div>
-      <a href="#" class="menuFont">Login</a>
+      <a href="formulaireLogin.php" class="menuFont">Login</a>
       <input type="search" name="recherche" placeholder="Recherche">
    </nav>
    <!---------------------Header------------------->
@@ -56,29 +50,29 @@
 
    <!---------------------Sections------------------->
    <div class="wrapper padding-top">
-      <section>
+      <section class="sectionTypeEnchere">
          <h2>Types d' enchéres</h2>
          <div class="container">
             <div class="category">
-               <a href="#">
+               <a href="./catalogue.html">
                   <img src="assets/images/peter-burdon-_lyDtvgmewU-unsplash.jpg" alt="Image">
                   <h3>Timbres Allemands</h3>
                </a>
             </div>
             <div class="category">
-               <a href="#">
+               <a href="./catalogue.html">
                   <img src="assets/images/fang-wei-lin-QEzdua1GBW4-unsplash.jpg" width="258px" alt="Image">
                   <h3>Timbres Americaines</h3>
                </a>
             </div>
             <div class="category">
-               <a href="#">
+               <a href="./catalogue.html">
                   <img src="assets/images/ali-bakhtiari-81eOv8Vox8k-unsplash.jpg" alt="Image">
                   <h3>Timbres Brésiliennes</h3>
                </a>
             </div>
             <div class="category">
-               <a href="#">
+               <a href="./catalogue.html">
                   <img src="assets/images/waldemar-brandt-Q4OvIQk_WjA-unsplash.jpg" alt="Image">
                   <h3>Timbres Argentines</h3>
                </a>
@@ -101,8 +95,7 @@
          <h2>Galerie photos</h2>
          <div class="galerie">
             <figure class="galerieItem galerieItem--1">
-               <img src="assets/images/ali-bakhtiari-81eOv8Vox8k-unsplash-croped.jpg" class="galerieImg"
-                  alt="Image 1">
+               <img src="assets/images/ali-bakhtiari-81eOv8Vox8k-unsplash-croped.jpg" class="galerieImg" alt="Image 1">
             </figure>
             <figure class="galerieItem galerieItem--2">
                <img src="assets/images/fang-wei-lin-QEzdua1GBW4-unsplash.jpg" class="galerieImg" alt="Image 2">

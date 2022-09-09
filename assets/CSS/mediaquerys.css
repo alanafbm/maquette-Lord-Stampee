@@ -1,3 +1,5 @@
+@import "root.css";
+
 @media screen and (max-width: 900px) {
     /* Banner Hero */
     .bannerImg {
@@ -8,8 +10,6 @@
         margin-right: auto;
         max-width: 900px;
     }
-  
- 
   
  
 }
@@ -126,7 +126,7 @@
 
     .container{
         flex-direction: column;
-        width: 800px;
+        max-width: 100%;
         margin-left: 20px;
     }
     .category img {
@@ -146,6 +146,13 @@
     }
     .aboutMe img{
         display: none;
+    }
+    .container>div {
+        width: calc(100% - 20px);
+        margin: 25px 0;
+    }
+    .sectionGalerie, .sectionTypeEnchere, .sectionNewsLetter{
+        padding: 0 25px;
     }
 
     /* INFOLETTRE */
@@ -170,6 +177,8 @@
    
    .description {
         flex-direction: column;
+        padding: 25px;
+
    }
     .margin {
         margin-left: 100px;
@@ -215,6 +224,20 @@
         margin: 10px 3px;
         padding: 0;
     }
+    a>.btn{
+        width: 200px;
+        height: 40px;
+        font-size: 0.6em;
+        margin: 10px 3px;
+        padding: 0;
+        margin: 0;
+    }
+    .cards{
+        padding: 0 25px;
+    }
+    .btnDetails{
+        padding-top: 15px;
+    }
 
     /* FICHE D'ENCHERES */
 
@@ -233,5 +256,6 @@
         margin-left: 60px;
     }
  
-
+    /* LOGIN */
+ 
 }

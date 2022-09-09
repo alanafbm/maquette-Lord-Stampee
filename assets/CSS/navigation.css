@@ -1,11 +1,12 @@
+@import "root.css";
+
 nav {
     display: flex;
     flex-direction: row;
     align-items:center;
-    align-content: stretch;
-    margin:0;
-    padding: 5px 1em  ; 
+    padding: 0 1em; 
     border-bottom: 0.5px solid var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 nav>* {

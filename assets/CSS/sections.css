@@ -1,3 +1,5 @@
+@import "root.css";
+
 .description{
     display: flex;
     justify-content: space-between;
@@ -31,11 +33,11 @@
 }
 
 .fiche{
-    padding: 50px 0;
+    padding: 0;
 }
 .margin{
     margin-left: 100px;
-    margin-top: 170px;
+    margin-top: 70px;
 }
 
 .searchMenu{
@@ -179,12 +181,11 @@ section>.card:first-child{
 }
 .img-magnifier-glass {
     position: absolute;
-    border: 3px solid #000;
     border-radius: 50%;
     cursor: none;
     /*Set the size of the magnifier glass:*/
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .detailView{
     background-image: url(../images/lord_stampee.jpg);
@@ -437,7 +438,7 @@ h2 .textAccueil{
     margin-bottom: 25px;
 }
 
-/* Grille de cards accueil ---------------------- */
+/* GRILLE CARDS ACCUEIL ---------------------- */
 
 .container {
     display: flex;
