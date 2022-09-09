@@ -48,7 +48,6 @@
       <form action="" method="post" class="box">
           <div class="containerText">
               <h1>CONNEXION</h1>
-              <!-- <h2>Bienvenue à nouveau, vous nous avez manqué !</h2> -->
           </div>
           <div class="containerInput">
             <label for="username">Username</label>

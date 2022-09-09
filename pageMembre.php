@@ -7,8 +7,10 @@
     <title>Page membre</title>
 </head>
 <body>
+    <h1>Page membre</h1>
     <div class="container">
         <form action=""></form>
+
     </div>
 </body>
 </html>
