@@ -1,20 +1,20 @@
 <?php include './header.php'; ?>
 
 <section class="containerLogin">
-      <form action="" method="post" class="box">
+      <form action="index.php?route=utilisateur/connexion" method="post" class="box">
           <div class="containerText">
               <h1>CONNEXION</h1>
           </div>
           <div class="containerInput">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="text" name="uti_courriel" id="username" placeholder="Username" required minlength="5">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="uti_mdp" id="password" placeholder="Password" required >
             <img src="https://api.iconify.design/mdi:eye-off-outline.svg?color=%23636363" alt="" id="icon-eye-open" class="iconify-eye">
             <img src="https://api.iconify.design/mdi:eye-outline.svg?color=%23636363" alt="" class="iconify-eye hidden" id="icon-eye-close">
           </div>
           <p>Mot de passe oublié</p>
-          <a class="buttonLogin" href="./validationLogin.php">Sign In</a>
+          <input class="buttonLogin" type="submit" value="Sign in">
           <div class="continueWith">
               <div class="lign"></div>
               <h3>Ou continuer avec</h3>
@@ -34,7 +34,7 @@
                   </button>
               </div>
           </section>
-          <h3>Vous n'êtes pas membre? <a href="">S'inscrire maintenant</a></h3>
+          <h3>Vous n'êtes pas membre? <a href="index.php?route=utilisateur/nouveau">S'inscrire maintenant</a></h3>
       </form>
     </section>
      <!---------------------------------Footer------------------------->

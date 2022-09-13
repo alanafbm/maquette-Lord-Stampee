@@ -17,12 +17,11 @@ CREATE SCHEMA IF NOT EXISTS `stampee` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 USE `stampee` ;
 
-
 -- -----------------------------------------------------
 -- Table `stampee`.`utilisateur`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `stampee`.`utilisateur` (
-  `id` INT NOT NULL,
+  `uti_id` INT NOT NULL,
   `uti_courriel` VARCHAR(45) NOT NULL,
   `uti_mdp` VARCHAR(45) NOT NULL,
   `uti_nom` VARCHAR(45) NOT NULL,
@@ -30,78 +29,53 @@ CREATE TABLE IF NOT EXISTS `stampee`.`utilisateur` (
   `uti_privilege` TINYINT NULL,
   `uti_pays_residence` VARCHAR(45) NULL,
   `uti_date_register` DATE NULL,
-  PRIMARY KEY (`id`))
+  `uti_confirmation` VARCHAR(45) NULL,
+  PRIMARY KEY (`uti_id`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `stampee`.`enchere`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `stampee`.`enchere` (
-  `id` INT NOT NULL,
-  `date_debut` DATE NOT NULL,
-  `date_fin` DATE NOT NULL,
-  `prix_plancher` DOUBLE NOT NULL,
-  `pieces` TINYINT NULL,
-  `status` TINYINT NULL,
-  `usager_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `usager_id`),
-  INDEX `fk_enchere_usager1_idx` (`usager_id` ASC) ,
+  `enc_id` INT NOT NULL,
+  `enc_date_debut` DATE NOT NULL,
+  `enc_date_fin` DATE NOT NULL,
+  `enc_prix_plancher` DOUBLE NOT NULL,
+  `enc_pieces` TINYINT NULL,
+  `enc_status` TINYINT NULL,
+  `utilisateur_uti_id` INT NOT NULL,
+  PRIMARY KEY (`enc_id`, `utilisateur_uti_id`),
+  INDEX `fk_enchere_usager1_idx` (`utilisateur_uti_id` ASC) ,
   CONSTRAINT `fk_enchere_usager1`
-    FOREIGN KEY (`usager_id`)
-    REFERENCES `stampee`.`usager` (`id`)
+    FOREIGN KEY (`utilisateur_uti_id`)
+    REFERENCES `stampee`.`utilisateur` (`uti_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
-
-
-
--- -----------------------------------------------------
--- Table `stampee`.`enchere`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `stampee`.`enchere` (
-  `id` INT NOT NULL,
-  `date_debut` DATE NOT NULL,
-  `date_fin` DATE NOT NULL,
-  `prix_plancher` DOUBLE NOT NULL,
-  `pieces` TINYINT NULL,
-  `status` TINYINT NULL,
-  `usager_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `usager_id`),
-  INDEX `fk_enchere_usager1_idx` (`usager_id` ASC) ,
-  CONSTRAINT `fk_enchere_usager1`
-    FOREIGN KEY (`usager_id`)
-    REFERENCES `stampee`.`usager` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `stampee`.`timbre`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `stampee`.`timbre` (
-  `id` INT NOT NULL,
-  `nom` VARCHAR(45) NULL,
-  `date_creation` VARCHAR(45) NULL,
-  `prix` DOUBLE NULL,
-  `description` VARCHAR(255) NULL,
-  `dimensions` VARCHAR(45) NULL,
-  `enchere_id` INT NOT NULL,
-  `usager_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `enchere_id`, `usager_id`),
-  INDEX `fk_timbre_enchere1_idx` (`enchere_id` ASC) ,
-  INDEX `fk_timbre_usager1_idx` (`usager_id` ASC) ,
+  `tim_id` INT NOT NULL,
+  `tim_nom` VARCHAR(45) NULL,
+  `tim_date_creation` VARCHAR(45) NULL,
+  `tim_prix` DOUBLE NULL,
+  `tim_description` VARCHAR(255) NULL,
+  `tim_dimensions` VARCHAR(45) NULL,
+  `enchere_enc_id` INT NOT NULL,
+  `utilisateur_uti_id` INT NOT NULL,
+  PRIMARY KEY (`tim_id`, `enchere_enc_id`, `utilisateur_uti_id`),
+  INDEX `fk_timbre_enchere1_idx` (`enchere_enc_id` ASC) ,
+  INDEX `fk_timbre_utilisateur1_idx` (`utilisateur_uti_id` ASC) ,
   CONSTRAINT `fk_timbre_enchere1`
-    FOREIGN KEY (`enchere_id`)
-    REFERENCES `stampee`.`enchere` (`id`)
+    FOREIGN KEY (`enchere_enc_id`)
+    REFERENCES `stampee`.`enchere` (`enc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_timbre_usager1`
-    FOREIGN KEY (`usager_id`)
-    REFERENCES `stampee`.`usager` (`id`)
+  CONSTRAINT `fk_timbre_utilisateur1`
+    FOREIGN KEY (`utilisateur_uti_id`)
+    REFERENCES `stampee`.`utilisateur` (`uti_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -113,18 +87,18 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `stampee`.`offre` (
   `id` INT NOT NULL,
   `prix` DOUBLE NULL,
-  `usager_id` INT NOT NULL,
-  `enchere_id` INT NOT NULL,
-  PRIMARY KEY (`usager_id`, `id`, `enchere_id`),
-  INDEX `fk_offre_enchere1_idx` (`enchere_id` ASC) ,
+  `utilisateur_uti_id` INT NOT NULL,
+  `enchere_enc_id` INT NOT NULL,
+  PRIMARY KEY (`utilisateur_uti_id`, `id`, `enchere_enc_id`),
+  INDEX `fk_offre_enchere1_idx` (`enchere_enc_id` ASC) ,
   CONSTRAINT `fk_offre_usager`
-    FOREIGN KEY (`usager_id`)
-    REFERENCES `stampee`.`usager` (`id`)
+    FOREIGN KEY (`utilisateur_uti_id`)
+    REFERENCES `stampee`.`utilisateur` (`uti_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_offre_enchere1`
-    FOREIGN KEY (`enchere_id`)
-    REFERENCES `stampee`.`enchere` (`id`)
+    FOREIGN KEY (`enchere_enc_id`)
+    REFERENCES `stampee`.`enchere` (`enc_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -134,15 +108,16 @@ ENGINE = InnoDB;
 -- Table `stampee`.`images`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `stampee`.`images` (
-  `id` INT NOT NULL,
-  `url` VARCHAR(45) NULL,
-  `titre` VARCHAR(45) NULL,
-  `image_principale` VARCHAR(45) NULL,
-  `timbre_id` INT NOT NULL,
-  PRIMARY KEY (`timbre_id`, `id`),
+  `img_id` INT NOT NULL,
+  `img_url` VARCHAR(45) NULL,
+  `img_titre` VARCHAR(45) NULL,
+  `img_principale` VARCHAR(45) NULL,
+  `img_secondaire` VARCHAR(45) NULL,
+  `timbre_tim_id` INT NOT NULL,
+  PRIMARY KEY (`img_id`, `timbre_tim_id`),
   CONSTRAINT `fk_images_timbre1`
-    FOREIGN KEY (`timbre_id`)
-    REFERENCES `stampee`.`timbre` (`id`)
+    FOREIGN KEY (`timbre_tim_id`)
+    REFERENCES `stampee`.`timbre` (`tim_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -154,11 +129,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `stampee`.`condition` (
   `id` INT NOT NULL,
   `condition` VARCHAR(255) NULL,
-  `timbre_id` INT NOT NULL,
-  PRIMARY KEY (`timbre_id`, `id`),
+  `timbre_tim_id` INT NOT NULL,
+  PRIMARY KEY (`timbre_tim_id`, `id`),
   CONSTRAINT `fk_condition_timbre1`
-    FOREIGN KEY (`timbre_id`)
-    REFERENCES `stampee`.`timbre` (`id`)
+    FOREIGN KEY (`timbre_tim_id`)
+    REFERENCES `stampee`.`timbre` (`tim_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

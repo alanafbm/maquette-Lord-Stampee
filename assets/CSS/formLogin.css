@@ -94,7 +94,7 @@
     border-radius: 10px;
     width: 80%;
     text-align: center;
-    margin-left: 25px;
+    margin-left: 38px;
     color: white;
     font-weight: bold;
     transition: transform 0.2s;
@@ -151,4 +151,11 @@
 }
 .iconContainer:hover{
     transform: scale(1.2);
+}
+input[type="submit"] {
+    border: none;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
 }
